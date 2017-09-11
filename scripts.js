@@ -25,9 +25,13 @@ process.stdin.on('readable', function () {
     if (input !== null) {
         var instruction = input.toString().trim();
         switch (instruction) {
-            case '/test':
-                process.stdout.write("Let's test!\n");
-                console.log(process.env);
+            case '/lang':
+                process.stdout.write("Let's test language:\n");
+                console.log(process.env ['lang']);
+                break;
+            case '/node':
+                process.stdout.write('Node version:\n')
+                console.log(process.versions ['node']);
                 break;
             case '/exit':
                 process.stdout.write('Quitting app!\n'); 
@@ -39,3 +43,12 @@ process.stdin.on('readable', function () {
     }
 });
 
+
+//var version = process.versions;
+
+//console.log(process.versions ['node']);
+//var version = process.versions;
+
+
+//var nodeVersion = version.node;
+//console.log('Node version is: ' + nodeVersion);
